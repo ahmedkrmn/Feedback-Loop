@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Purchase Credit</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
+    />
+  </head>
+  <body>
+    <form action="/checkout" method="POST">
+      <script
+        src="https://checkout.stripe.com/checkout.js"
+        class="stripe-button"
+        data-key="pk_test_gITSyPLbjNIx9pZANGDpPybK00XHcXTkvG"
+        data-amount="99"
+        data-currency="USD"
+        data-name="Feedback Loop"
+        data-description="Purchase Credit"
+        data-zip-code="true"
+        data-image="https://cdn3.iconfinder.com/data/icons/business-outline-1/64/business-outline-07-512.png"
+        data-locale="auto"
+      ></script>
+
+      <!-- Hide default stripe button -->
+      <script>
+        document.getElementsByClassName('stripe-button-el')[0].style.display =
+          'none';
+      </script>
+
+      <!-- Add custom submit button -->
+      <button type="submit" class="btn">Buy Credit</button>
+    </form>
+  </body>
+</html>
