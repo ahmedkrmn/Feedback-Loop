@@ -20,7 +20,7 @@ router.get('/api/surveys', requireLogin, async (req, res) => {
 });
 
 router.get('/api/survey/:surveyId/:choice', (req, res) => {
-  res.render('thanks');
+  res.sendFile(path.join(__dirname, '..', 'public', 'voted.html'));
 });
 
 router.post('/api/survey/webhook', (req, res) => {
