@@ -46,9 +46,7 @@ Make sure you have [Node.js](https://nodejs.org/) installed then follow the step
 3. To test the Webhook locally, we'll be using [ngrok](https://dashboard.ngrok.com/get-started). Create an account and follow the steps provided to download the application executable. Place the downloaded file in the root directory of the Feedback Loop app.
 
 4. You also need to have an account for each of [MongoDB Atlas](https://www.mongodb.com/cloud/atlas
-  ), [Google Developer](https://console.developers.google.com/), [Stripe](https://stripe.com/) ,and [SendGrid](https://sendgrid.com/).
-
-  *Note that you can also use a local copy of MongoDB instead of Atlas.*
+  ), [Google Developer](https://console.developers.google.com/), [Stripe](https://stripe.com/) ,and [SendGrid](https://sendgrid.com/). *Note that you can also use a local copy of MongoDB instead of Atlas.*
 
 5. Create a new file  `dev.js` in the `config/` directory and add in all the API keys required. You can check the `prod.js` file in the same directory for a list of all the keys you need.
 6. Open up two terminal instances and run `npm run dev` and `npm run webhook`. You can't use concurrently with ngrok, so you that's why you have to have two separate terminals for each command.
