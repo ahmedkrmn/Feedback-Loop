@@ -1,70 +1,68 @@
-<html lang="en">
-  <head>
-    <title>Send Survey</title>
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/icon?family=Material+Icons"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
-    />
-    <style>
-      .title {
-        font-weight: bold;
-      }
-    </style>
-  </head>
-  <body>
-    <div class="container">
-      <br />
-      <br />
-      <table class="centered">
-        <tbody>
-          <tr>
-            <td class="title">Survey Name</td>
-            <td><%= title %></td>
-          </tr>
-          <tr>
-            <td class="title">Subject</td>
-            <td><%= subject %></td>
-          </tr>
-          <tr>
-            <td class="title">Body</td>
-            <td><%= body %></td>
-          </tr>
-          <tr>
-            <td class="title">Email List</td>
-            <td>
-              <% emailList.forEach(email=>{ %>
-              <div><%= email %></div>
-              <% }) %>
-            </td>
-          </tr>
-        </tbody>
-      </table>
-      <br />
-      <div class="row">
-        <button class="col s5 left btn" onclick="window.history.back()">
-          Back
-        </button>
-        <button class="col s5  right btn red" onclick="submit()">
-          Continue
-        </button>
-      </div>
+<head>
+  <title>Send Survey</title>
+  <link
+    rel="stylesheet"
+    href="https://fonts.googleapis.com/icon?family=Material+Icons"
+  />
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
+  />
+  <style>
+    .title {
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <br />
+    <br />
+    <table class="centered">
+      <tbody>
+        <tr>
+          <td class="title">Survey Name</td>
+          <td><%= title %></td>
+        </tr>
+        <tr>
+          <td class="title">Subject</td>
+          <td><%= subject %></td>
+        </tr>
+        <tr>
+          <td class="title">Body</td>
+          <td><%= body %></td>
+        </tr>
+        <tr>
+          <td class="title">Email List</td>
+          <td>
+            <% emailList.forEach(email=>{ %>
+            <div><%= email %></div>
+            <% }) %>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <br />
+    <div class="row">
+      <button class="col s5 left btn" onclick="window.history.back()">
+        Back
+      </button>
+      <button class="col s5  right btn red" onclick="submit()">
+        Continue
+      </button>
     </div>
-    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-    <script>
-      async function submit() {
-        console.log('hello');
-        await axios.post('/survey/send', {
-          title: '<%= title %>',
-          subject: '<%= subject %>',
-          body: '<%= body %>',
-          recipients: '<%= emailList %>'
-        });
-        location = '/';
-      }
-    </script>
-  </body>
-</html>
+  </div>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script>
+    async function submit() {
+      console.log('hello');
+      await axios.post('/survey/send', {
+        title: '<%= title %>',
+        subject: '<%= subject %>',
+        body: '<%= body %>',
+        recipients: '<%= emailList %>'
+      });
+      location = '/';
+    }
+  </script>
+</body>
