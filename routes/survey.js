@@ -19,12 +19,12 @@ router.get('/api/surveys', requireLogin, async (req, res) => {
   res.send(surveys);
 });
 
-router.get('/api/surveys/:surveyId/:choice', (req, res) => {
+router.get('/api/survey/:surveyId/:choice', (req, res) => {
   res.render('thanks');
 });
 
-router.post('/api/surveys/webhook', (req, res) => {
-  const p = new Path('/api/surveys/:surveyId/:choice');
+router.post('/api/survey/webhook', (req, res) => {
+  const p = new Path('/api/survey/:surveyId/:choice');
 
   _.chain(req.body)
     .map(({ email, url }) => {

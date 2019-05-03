@@ -6,9 +6,11 @@ const Survey = mongoose.model('surveys');
 
 router.get('/dashboard', async (req, res) => {
   const existingUser = await User.findById(req.user.id);
-  const userSurveys = await Survey.find({ _user: req.user.id }).select({
-    recipients: false
-  });
+  const userSurveys = await Survey.find({ _user: req.user.id })
+    .select({
+      recipients: false
+    })
+    .sort({ lastResponded: -1 });
   res.render('dashboard', {
     credits: existingUser.credits,
     userSurveys
