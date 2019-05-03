@@ -51,7 +51,8 @@ router.post('/api/survey/webhook', (req, res) => {
           lastResponded: new Date()
         }
       ).exec();
-    });
+    })
+    .value();
   //* There is no need to await the execution of the query because it's all happening behind our backs with no control over what happens if the promise resolve or not. That's why we use .exec()
   res.send({});
 });
