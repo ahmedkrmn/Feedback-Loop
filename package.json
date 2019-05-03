@@ -1,7 +1,7 @@
 {
   "name": "feedback_loop",
   "version": "1.0.0",
-  "description": "",
+  "description": "Automate the process of sending out surveys to your user base. Through your dashboard, you can send out mass surveys to all of you users by only providing a list of email addresses to send out to.",
   "main": "index.js",
   "engines": {
     "node": "10.15.3",
@@ -16,7 +16,6 @@
   "license": "ISC",
   "dependencies": {
     "@sendgrid/mail": "^6.3.1",
-    "axios": "^0.18.0",
     "body-parser": "^1.19.0",
     "cookie-session": "^1.3.3",
     "ejs": "^2.6.1",

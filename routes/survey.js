@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const _ = require('lodash');
+const array = require('lodash/array');
 const Path = require('path-parser').default;
 const { URL } = require('url');
 const mongoose = require('mongoose');
@@ -26,7 +26,8 @@ router.get('/api/survey/:surveyId/:choice', (req, res) => {
 router.post('/api/survey/webhook', (req, res) => {
   const p = new Path('/api/survey/:surveyId/:choice');
 
-  _.chain(req.body)
+  array
+    .chain(req.body)
     .map(({ email, url }) => {
       if (!url) return undefined;
       const match = p.test(new URL(url).pathname);
