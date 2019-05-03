@@ -58,7 +58,7 @@ Here's the list of the major libraries and frameworks used:
 
 |                                         Tool                                          |           Use            |
 | :-----------------------------------------------------------------------------------: | :----------------------: |
-|                   [Express](https://www.express.com/) and [Node.js]                   |   Backend development    |
+|                    [Express](https://www.express.com/) and Node.js                    |   Backend development    |
 |                                        Stripe                                         | Online payment processor |
 |                                [EJS](https://ejs.co/)                                 |     Templating HTLM      |
 |                                       SendGrid                                        |  Email delivery service  |
