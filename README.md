@@ -71,5 +71,6 @@ Here's the list of the major libraries and frameworks used:
 ## What's next
 
 1. Improving styling and the overall front-end.
-2. Adding more surveying options. Currently the app only supports sending out surveys with "Yes" / "No" answers.
-3. Enhancing the dashboard by adding charts and helpful analytics.
+2. Implementing data caching with Redis.
+3. Adding more surveying options. Currently the app only supports sending out surveys with "Yes" / "No" answers.
+4. Enhancing the dashboard by adding charts and helpful analytics.
