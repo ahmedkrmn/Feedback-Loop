@@ -7,7 +7,9 @@ router.post('/checkout', requireLogin, async (req, res) => {
     await charge(req);
     req.user.credits += 5;
     await req.user.save();
-    res.redirect('/');
+    res.render('paymentSuccess', {
+      credits: req.user.credits
+    });
   } catch (error) {
     res.status(500).send({ error });
   }
