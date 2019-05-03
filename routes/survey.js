@@ -7,6 +7,7 @@ const requireLogin = require('../middlewares/requireLogin');
 const requireCredits = require('../middlewares/requireCredits');
 const Mailer = require('../services/Mailer');
 const surveyTemplate = require('../services/emailTemplates/surveyTemplate');
+const path = require('path');
 
 const Survey = mongoose.model('surveys');
 
@@ -19,10 +20,10 @@ router.get('/api/surveys', requireLogin, async (req, res) => {
 });
 
 router.get('/api/surveys/:surveyId/:choice', (req, res) => {
-  res.send('Thanks for voting!');
+  res.render('thanks');
 });
 
-router.post('/api/surveys/webhooks', (req, res) => {
+router.post('/api/surveys/webhook', (req, res) => {
   const p = new Path('/api/surveys/:surveyId/:choice');
 
   _.chain(req.body)
@@ -55,7 +56,22 @@ router.post('/api/surveys/webhooks', (req, res) => {
   res.send({});
 });
 
-router.post('/api/surveys', requireLogin, requireCredits, async (req, res) => {
+router.get('/survey/new', requireLogin, requireCredits, async (req, res) => {
+  res.sendFile(path.join(__dirname, '..', 'public', 'survey-form.html'));
+});
+
+router.post('/survey/submit', requireLogin, requireCredits, (req, res) => {
+  const { emails } = req.body;
+  const emailList = emails.split(',').map(email => email.trim());
+  res.render(submit, {
+    emailList,
+    subject: req.body.subject,
+    body: req.body.body,
+    title: req.body.survey_name
+  });
+});
+
+router.post('/survey/send', requireLogin, requireCredits, async (req, res) => {
   const { title, subject, body, recipients } = req.body;
   const survey = new Survey({
     title,

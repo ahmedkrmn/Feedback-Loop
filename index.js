@@ -11,9 +11,15 @@ require('./models/User');
 require('./models/Survey');
 require('./services/passport');
 const surveyRoutes = require('./routes/survey');
+const dashboardRoutes = require('./routes/dashboard');
 
 mongoose.connect(keys.mongoURI, { useNewUrlParser: true });
 const app = express();
+
+app.use(express.static(path.join(__dirname, 'public')));
+
+app.set('views', path.join(__dirname, 'views'));
+app.set('view engine', 'ejs');
 
 //* parse application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -36,11 +42,13 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, 'index.html'));
+  if (req.user) res.redirect('/dashboard');
+  else res.sendFile(path.join(__dirname, 'public', 'home.html'));
 });
 app.use('/', authRoutes);
 app.use('/', checkoutRoutes);
 app.use('/', surveyRoutes);
+app.use('/', dashboardRoutes);
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => console.log(`Server Running On Port ${PORT}`));

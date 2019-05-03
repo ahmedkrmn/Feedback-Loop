@@ -1,0 +1,35 @@
+h2,
+h4 {
+  color: #37474f;
+}
+
+h5,
+h6 {
+  color: #90a4ae;
+}
+
+/* Remove Number Input Spinners */
+input[type='number']::-webkit-inner-spin-button,
+input[type='number']::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+a {
+  cursor: default;
+}
+
+.card {
+  cursor: pointer;
+  height: 300px;
+}
+
+.card-reveal {
+  cursor: default;
+}
+
+.fa-times {
+  color: red;
+  margin-right: 10px;
+  cursor: pointer;
+}

@@ -8,15 +8,25 @@ router.get(
   })
 );
 
-router.get('/auth/google/callback', passport.authenticate('google'));
+router.get(
+  '/auth/google/callback',
+  passport.authenticate('google', { failureRedirect: '/' }),
+  (req, res) => {
+    res.redirect('/dashboard');
+  }
+);
 
-router.get('/api/logout', (req, res) => {
+router.get('/logout', (req, res) => {
   req.logout();
   res.redirect('/');
 });
 
-router.get('/api/current_user', (req, res) => {
-  res.send(req.user);
+router.get('/api/verify', (req, res) => {
+  if (req.user) {
+    res.send(req.user);
+  } else {
+    res.send({ error: 'Not authorized!' });
+  }
 });
 
 module.exports = router;

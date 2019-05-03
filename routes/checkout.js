@@ -6,8 +6,8 @@ router.post('/checkout', requireLogin, async (req, res) => {
   try {
     await charge(req);
     req.user.credits += 5;
-    const user = await req.user.save();
-    res.send(user);
+    await req.user.save();
+    res.redirect('/');
   } catch (error) {
     res.status(500).send({ error });
   }

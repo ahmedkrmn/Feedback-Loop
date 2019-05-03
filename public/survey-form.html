@@ -1,0 +1,66 @@
+<html lang="en">
+  <head>
+    <title>Dashboard</title>
+
+    <!-- CSS  -->
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+    />
+    <link rel="stylesheet" href="/css/materialize.min.css" />
+    <link rel="stylesheet" href="/css/style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <br />
+      <br />
+      <div class="row">
+        <form class="col s12" method="POST" action="/survey/submit">
+          <div class="row">
+            <div class="input-field col s6">
+              <input
+                name="survey_name"
+                id="survey_name"
+                type="text"
+                class="validate"
+                required
+              />
+              <label for="survey_name">Survey Name</label>
+            </div>
+            <div class="input-field col s6">
+              <input name="subject" id="subject"" type="text" class="validate"
+              required />
+              <label for="subject">Subject</label>
+            </div>
+          </div>
+          <div class="row">
+            <div class="input-field col s12">
+              <input
+                name="body"
+                id="body"
+                type="text"
+                class="validate"
+                required
+              />
+              <label for="body">Body</label>
+            </div>
+          </div>
+          <div class="row">
+            <div class="input-field col s12">
+              <input
+                name="emails"
+                id="emails"
+                type="text"
+                class="validate"
+                required
+              />
+              <label for="emails">Email list</label>
+            </div>
+          </div>
+          <button type="submit" class="btn red col s12">Submit</button>
+        </form>
+      </div>
+    </div>
+    <script src="/js/materialize.min.js"></script>
+  </body>
+</html>
