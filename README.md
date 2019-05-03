@@ -15,7 +15,7 @@ To make things easier for your users, everything happens inside their email clie
 
 ## Usage
 
-To use the application, you need to buy credits first. Each mass survey - regardless of the number of emails sent - costs 1 US dollar. You can top up your credit count by buying credits which are sold in packs of 5 for 4.99$ each.
+To use the application, you need to buy credits first. Each mass survey - regardless of the number of emails sent - costs 1 Credit. You can top up your credit count by buying credits which are sold in packs of 5 for 4.99$ each.
 
 *Please note that payment is handled by a third-party service to ensure the security of the transaction.*
 
