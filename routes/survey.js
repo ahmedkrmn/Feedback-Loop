@@ -11,11 +11,11 @@ const path = require('path');
 
 const Survey = mongoose.model('surveys');
 
+//* For testing only
 router.get('/api/surveys', requireLogin, async (req, res) => {
   const surveys = await Survey.find({ _user: req.user.id }).select({
     recipients: false
   });
-
   res.send(surveys);
 });
 
@@ -51,9 +51,8 @@ router.post('/api/survey/webhook', (req, res) => {
           lastResponded: new Date()
         }
       ).exec();
-    })
-    .value();
-
+    });
+  //* There is no need to await the execution of the query because it's all happening behind our backs with no control over what happens if the promise resolve or not. That's why we use .exec()
   res.send({});
 });
 

@@ -5,6 +5,7 @@ class Mailer {
   constructor({ subject, recipients }, html) {
     sgMail.setApiKey(keys.sendGridKey);
     const msg = {
+      //* Extract all emails from the recipients sub document collection of the sent survey document
       to: recipients.map(({ email }) => email),
       from: 'no-reply@Feedback-Loop.com',
       subject,
