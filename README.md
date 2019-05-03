@@ -33,7 +33,7 @@ To use the application, you need to buy credits first. Each mass survey - regard
 
 ### Live version
 
-You can use the live deployed version on Heroku through this link.
+You can use the live deployed version on Heroku through this [link](https://feed-back-loop.herokuapp.com/).
 
 ### Build From Source
 
