@@ -63,7 +63,7 @@ router.get('/survey/new', requireLogin, requireCredits, async (req, res) => {
 router.post('/survey/submit', requireLogin, requireCredits, (req, res) => {
   const { emails } = req.body;
   const emailList = emails.split(',').map(email => email.trim());
-  res.render(submit, {
+  res.render('submit', {
     emailList,
     subject: req.body.subject,
     body: req.body.body,
@@ -77,7 +77,10 @@ router.post('/survey/send', requireLogin, requireCredits, async (req, res) => {
     title,
     subject,
     body,
-    recipients: recipients.split(',').map(email => ({ email: email.trim() })),
+    recipients: recipients
+      .split(',')
+      .filter(Boolean)
+      .map(email => ({ email: email.trim() })),
     _user: req.user.id,
     dateSent: Date.now()
   });

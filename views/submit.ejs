@@ -1,14 +1,16 @@
 <html lang="en">
   <head>
-    <title>Dashboard</title>
-
-    <!-- CSS  -->
+    <title>Send Survey</title>
     <link
       rel="stylesheet"
       href="https://fonts.googleapis.com/icon?family=Material+Icons"
     />
     <link rel="stylesheet" href="/css/materialize.min.css" />
-    <link rel="stylesheet" href="/css/style.css" />
+    <style>
+      .title {
+        font-weight: bold;
+      }
+    </style>
   </head>
   <body>
     <div class="container">
@@ -17,24 +19,48 @@
       <table class="centered">
         <tbody>
           <tr>
-            <td>Survey Title</td>
-            <td>Eclair</td>
+            <td class="title">Survey Name</td>
+            <td><%= title %></td>
           </tr>
           <tr>
-            <td>Subject</td>
-            <td>Eclair</td>
+            <td class="title">Subject</td>
+            <td><%= subject %></td>
           </tr>
           <tr>
-            <td>Body</td>
-            <td>Eclair</td>
+            <td class="title">Body</td>
+            <td><%= body %></td>
           </tr>
           <tr>
-            <td>Email List</td>
-            <td>Eclair</td>
+            <td class="title">Email List</td>
+            <td>
+              <% emailList.forEach(email=>{ %>
+              <div><%= email %></div>
+              <% }) %>
+            </td>
           </tr>
         </tbody>
       </table>
+      <br />
+      <div class="row">
+        <button class="col s5 left btn">Back</button>
+        <button class="col s5  right btn red" onclick="submit()">
+          Continue
+        </button>
+      </div>
     </div>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script>
+      async function submit() {
+        console.log('hello');
+        await axios.post('/survey/send', {
+          title: '<%= title %>',
+          subject: '<%= subject %>',
+          body: '<%= body %>',
+          recipients: '<%= emailList %>'
+        });
+        location = '/';
+      }
+    </script>
     <script src="/js/materialize.min.js"></script>
   </body>
 </html>
