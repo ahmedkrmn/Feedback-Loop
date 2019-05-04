@@ -1,6 +1,6 @@
 const router = require('express').Router();
-const charge = require('../services/stripe');
 const requireLogin = require('../middlewares/requireLogin');
+const charge = require('../services/stripe');
 
 router.post('/checkout', requireLogin, async (req, res) => {
   try {
