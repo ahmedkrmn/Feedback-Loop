@@ -4,9 +4,6 @@
 .icon-block .material-icons {
   font-size: inherit;
 }
-body {
-  padding: 2em;
-}
 .loginBtn {
   background: #dd4b39;
   box-sizing: border-box;
